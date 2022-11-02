@@ -36,4 +36,18 @@ function onReady() {
     } // end for loop
   }) // end ajax
 
+  $.ajax({
+    type: 'GET',
+    url: '/release-dates'
+  }).then(function (response) {
+    for (let album of response) {
+      $('#releaseDateBody').append(`
+        <tr>
+          <td>${album.title}</td>
+          <td>${album.year}</td>
+        </tr>
+      `)
+    } // end for loop
+  }) // end ajax
+
 }
